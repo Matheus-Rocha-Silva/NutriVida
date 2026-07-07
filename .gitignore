@@ -1,0 +1,14 @@
+# Eclipse metadata files
+.metadata
+.classpath
+.project
+.settings/
+
+# Automatically generated build folders
+bin/
+build/
+target/
+
+# Eclipse launch configurations and logs
+*.launch
+*.log
