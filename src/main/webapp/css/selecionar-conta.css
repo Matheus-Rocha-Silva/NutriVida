@@ -1,0 +1,343 @@
+@charset "UTF-8";
+
+.account-select-container {
+  min-height: 100vh;
+  background-color: #E8F5E9;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 32px 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Raminhos decorativos */
+.leaf-deco {
+  position: absolute;
+  color: #81C784;
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+.leaf-deco-top-left {
+  top: -10px;
+  left: -10px;
+  font-size: 80px;
+  transform: rotate(45deg);
+}
+
+.leaf-deco-bottom-left {
+  bottom: 10px;
+  left: 10px;
+  font-size: 70px;
+  transform: rotate(-30deg);
+}
+
+.leaf-deco-bottom-right {
+  bottom: 10px;
+  right: 10px;
+  font-size: 70px;
+  transform: rotate(120deg);
+}
+
+/* Conteúdo Principal em Grid (Mobile-first: pilha vertical) */
+.content-wrapper {
+  width: 100%;
+  max-width: 1000px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+  z-index: 2;
+}
+
+/* Seção do Formulário / Contas */
+.accounts-section {
+  width: 100%;
+  max-width: 440px;
+}
+
+.welcome-header {
+  margin-bottom: 24px;
+}
+
+.welcome-title {
+  color: #2E7D32;
+  font-size: 32px;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  line-height: 1.2;
+}
+
+.welcome-title i {
+  color: #81C784;
+  font-size: 24px;
+}
+
+.welcome-subtitle {
+  color: #666666;
+  font-size: 15px;
+  margin-top: 6px;
+}
+
+.section-label {
+  color: #2E7D32;
+  font-weight: 700;
+  font-size: 15px;
+  margin-bottom: 14px;
+  display: block;
+}
+
+/* Lista de Cartões de Conta */
+.accounts-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.account-card {
+  background: #FFFFFF;
+  border-radius: 16px;
+  padding: 12px 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+  border: 1.5px solid transparent;
+}
+
+.account-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(46, 125, 50, 0.1);
+  border-color: #81C784;
+}
+
+.account-info {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.avatar-circle {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background-color: #81C784;
+  color: #2E7D32;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  flex-shrink: 0;
+}
+
+.account-details h3 {
+  font-size: 16px;
+  font-weight: 700;
+  color: #333333;
+  margin-bottom: 2px;
+}
+
+.account-details p {
+  font-size: 12px;
+  color: #666666;
+}
+
+.arrow-icon {
+  color: #2E7D32;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+/* Botões de Ação */
+.action-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.btn-secondary-account {
+  background-color: #ECEAE0;
+  color: #333333;
+  border: 1px solid #DDD9C8;
+  padding: 12px 20px;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.btn-secondary-account:hover {
+  background-color: #E2DFD2;
+}
+
+.btn-remove-account {
+  background-color: #E2EFE0;
+  color: #2E7D32;
+  border: 1px solid #C5E1C7;
+  padding: 12px 20px;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.btn-remove-account:hover {
+  background-color: #D3E7D5;
+}
+
+/* Seção Direita: Mascote Folhinha */
+.mascot-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.mascot-circle {
+  width: 280px;
+  height: 280px;
+  background-color: #EBF3EC;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  box-shadow: 0 8px 24px rgba(46, 125, 50, 0.06);
+}
+
+.mascot-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* Modal de Autenticação / Inserir Senha */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  padding: 20px;
+}
+
+.modal-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal-box {
+  background: #FFFFFF;
+  border-radius: 20px;
+  padding: 32px 28px;
+  width: 100%;
+  max-width: 380px;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  transform: translateY(20px);
+  transition: transform 0.3s ease;
+}
+
+.modal-overlay.active .modal-box {
+  transform: translateY(0);
+}
+
+.modal-avatar {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: #81C784;
+  color: #2E7D32;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  margin: 0 auto 12px;
+}
+
+.modal-user-name {
+  color: #2E7D32;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.modal-user-desc {
+  color: #666666;
+  font-size: 13px;
+  margin-bottom: 20px;
+}
+
+.modal-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.btn-cancel {
+  flex: 1;
+  background-color: #EFEFEF;
+  color: #333333;
+  border: none;
+  padding: 12px;
+  border-radius: 12px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.btn-submit {
+  flex: 1;
+  background-color: #2E7D32;
+  color: #FFFFFF;
+  border: none;
+  padding: 12px;
+  border-radius: 12px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+/* Responsividade Desktop (>= 850px) */
+@media (min-width: 850px) {
+  .content-wrapper {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .accounts-section {
+    width: 50%;
+  }
+
+  .mascot-section {
+    width: 45%;
+  }
+
+  .mascot-circle {
+    width: 380px;
+    height: 380px;
+  }
+}

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nutri Saúde - Bem-vindo de volta</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/selecionar-conta.css">
+</head>
+<body>
+
+  <main class="account-select-container">
+    
+    <i class="fa-solid fa-seedling leaf-deco leaf-deco-top-left"></i>
+    <i class="fa-solid fa-leaf leaf-deco leaf-deco-bottom-left"></i>
+    <i class="fa-solid fa-seedling leaf-deco leaf-deco-bottom-right"></i>
+
+    <div class="content-wrapper">
+      
+      <section class="accounts-section">
+        
+        <div class="welcome-header">
+          <h1 class="welcome-title">
+            Bem-vindo de volta
+          </h1>
+          <p class="welcome-subtitle">Entre para compartilhar receitas saudáveis</p>
+        </div>
+
+        <span class="section-label">Contas</span>
+
+        <div class="accounts-list">
+          
+          <div class="account-card" onclick="abrirModalSenha('Luiz Inácio', 'Gosto de receitas saudáveis')">
+            <div class="account-info">
+              <div class="avatar-circle">
+                <i class="fa-solid fa-user"></i>
+              </div>
+              <div class="account-details">
+                <h3>Luiz Inácio</h3>
+                <p>Gosto de receitas saudáveis</p>
+              </div>
+            </div>
+            <i class="fa-solid fa-chevron-right arrow-icon"></i>
+          </div>
+
+          <!-- Conta 2 -->
+          <div class="account-card" onclick="abrirModalSenha('Lady Laura', 'Vida leve e equilibrada')">
+            <div class="account-info">
+              <div class="avatar-circle">
+                <i class="fa-solid fa-user"></i>
+              </div>
+              <div class="account-details">
+                <h3>Lady Laura</h3>
+                <p>Vida leve e equilibrada</p>
+              </div>
+            </div>
+            <i class="fa-solid fa-chevron-right arrow-icon"></i>
+          </div>
+
+          <!-- Conta 3 -->
+          <div class="account-card" onclick="abrirModalSenha('João Ferreira', 'Explorador de sabores')">
+            <div class="account-info">
+              <div class="avatar-circle">
+                <i class="fa-solid fa-user"></i>
+              </div>
+              <div class="account-details">
+                <h3>João Ferreira</h3>
+                <p>Explorador de sabores</p>
+              </div>
+            </div>
+            <i class="fa-solid fa-chevron-right arrow-icon"></i>
+          </div>
+
+        </div>
+
+        <div class="action-buttons">
+          <a href="login.html" class="btn-secondary-account">
+            <i class="fa-solid fa-circle-plus"></i>
+            Adicionar nova conta
+          </a>
+
+          <button type="button" class="btn-remove-account" onclick="alert('Modo de remoção ativado. Clique na conta que deseja remover do dispositivo.')">
+            <i class="fa-regular fa-trash-can"></i>
+            Remover conta
+          </button>
+        </div>
+
+      </section>
+
+      <section class="mascot-section">
+        <div class="mascot-circle">
+          <img src="img/hortelinho.png" alt="Mascote Nutri Saúde - Folha Amigável" class="mascot-img">
+        </div>
+      </section>
+
+    </div>
+
+    <div id="modalSenha" class="modal-overlay">
+      <div class="modal-box">
+        <div class="modal-avatar">
+          <i class="fa-solid fa-user"></i>
+        </div>
+        <h3 id="modalNome" class="modal-user-name">Nome do Usuário</h3>
+        <p id="modalDesc" class="modal-user-desc">Descrição da conta</p>
+
+        <form action="feed.html" method="POST">
+          <div class="input-group">
+            <i class="fa-solid fa-lock fa-icon-left"></i>
+            <input type="password" id="inputSenhaModal" class="input-field" placeholder="Digite sua senha para acessar" required>
+          </div>
+
+          <div class="modal-actions">
+            <button type="button" class="btn-cancel" onclick="fecharModalSenha()">Cancelar</button>
+            <button type="submit" class="btn-submit">Acessar</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+  </main>
+
+  <script>
+    function abrirModalSenha(nome, descricao) {
+      document.getElementById('modalNome').innerText = nome;
+      document.getElementById('modalDesc').innerText = descricao;
+      document.getElementById('modalSenha').classList.add('active');
+      setTimeout(() => {
+        document.getElementById('inputSenhaModal').focus();
+      }, 100);
+    }
+
+    function fecharModalSenha() {
+      document.getElementById('modalSenha').classList.remove('active');
+      document.getElementById('inputSenhaModal').value = '';
+    }
+  </script>
+
+</body>
+</html>
