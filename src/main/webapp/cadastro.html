@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nutri Saúde - Criar sua conta</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/cadastro.css">
+</head>
+<body>
+
+  <main class="signup-container">
+    <section class="form-section">
+      <div class="form-wrapper">
+        <div class="form-header">
+          <h2>Criar sua conta <i class="fa-solid fa-leaf"></i></h2>
+          <p>
+            Junte-se a <strong>Nutri Saúde</strong> e receba conteúdos, receitas e dicas exclusivas para você
+          </p>
+        </div>
+
+        <form id="signupForm" onsubmit="validarCadastro(event)" action="Logica Servlet aqui!!!">
+          
+          <label class="input-label" for="nome">Nome Completo</label>
+          <div class="input-group">
+            <i class="fa-regular fa-user fa-icon-left"></i>
+            <input type="text" id="nome" class="input-field" placeholder="Digite seu nome completo" required>
+          </div>
+
+          <label class="input-label" for="email">E-mail</label>
+          <div class="input-group">
+            <i class="fa-regular fa-envelope fa-icon-left"></i>
+            <input type="email" id="email" class="input-field" placeholder="Digite seu E-mail" required>
+          </div>
+
+          <label class="input-label" for="senha">Senha</label>
+          <div class="input-group">
+            <i class="fa-solid fa-lock fa-icon-left"></i>
+            <input type="password" id="senha" class="input-field" placeholder="Digite sua senha" required>
+          </div>
+
+          <label class="input-label" for="confirmarSenha">Confirme sua Senha</label>
+          <div class="input-group">
+            <i class="fa-solid fa-shield-halved fa-icon-left"></i>
+            <input type="password" id="confirmarSenha" class="input-field" placeholder="Confirme sua senha" required>
+          </div>
+
+          <div style="text-align: center; margin-top: 10px;">
+            <button type="submit" class="btn-confirm">Confirmar</button>
+          </div>
+
+          <div class="login-prompt">
+            Já possui uma conta? <a href="login.html" class="login-link">Entrar</a>
+          </div>
+
+        </form>
+
+      </div>
+    </section>
+
+    <section class="banner-section">
+      <div class="banner-overlay"></div>
+      
+      <div class="info-card">
+        
+        <div class="info-item">
+          <i class="fa-solid fa-mug-hot info-icon"></i>
+          <div class="info-text">
+            <h3>Conteúdo que faz bem</h3>
+            <p>Receitas, dicas e informações para uma vida mais saudável.</p>
+          </div>
+        </div>
+
+        <div class="info-item">
+          <i class="fa-solid fa-bowl-food info-icon"></i>
+          <div class="info-text">
+            <h3>Escolhas melhores</h3>
+            <p>Encontre opções saudáveis para o seu dia a dia.</p>
+          </div>
+        </div>
+
+        <div class="info-item">
+          <div class="info-text" style="width: 100%;">
+            <h3 style="margin-bottom: 2px;">Energia para viver</h3>
+            <p>Alimente seu corpo e sua mente com equilíbrio.</p>
+            <div class="center-icon-item">
+              <i class="fa-regular fa-sun"></i>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Script para validação dos campos de senha -->
+  <script>
+    function validarCadastro(event) {
+      event.preventDefault();
+      
+      const senha = document.getElementById('senha').value;
+      const confirmarSenha = document.getElementById('confirmarSenha').value;
+
+      if (senha !== confirmarSenha) {
+        alert('As senhas digitadas não coincidem. Por favor, verifique e tente novamente!');
+        document.getElementById('confirmarSenha').focus();
+        return false;
+      }
+
+      alert('Cadastro realizado com sucesso! Redirecionando para a área principal...');
+      window.location.href = 'feed.html';
+    }
+  </script>
+
+</body>
+</html>

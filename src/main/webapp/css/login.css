@@ -6,6 +6,10 @@
   min-height: 100vh;
 }
 
+.auth-banner{
+  background-color: #f3eee4;
+}
+
 .auth-header {
   display: grid;
   place-content:  center;
@@ -76,7 +80,11 @@
   margin-bottom: 24px;
 }
 
-
+.feature-list{
+  background-color: #f6f5f4;
+  border-radius: 10px;
+  width: max-content;
+}
 
 .feature-item {
   display: flex;
@@ -171,7 +179,7 @@
 .input-group {
   position: relative;
   margin-bottom: 20px;
-  border-radius: 0px;
+  /*border-radius: 0px;*/
 }
 
 .input-field {
@@ -196,20 +204,20 @@
 /* Espaços para Ícones FontAwesome */
 .fa-icon-left {
   position: absolute;
-  left: 16px;
-  top: 50%;
+  left: 13px;
+  top: 36%;
   transform: translateY(-50%);
   color: #88A28A;
-  font-size: 20px;
+  font-size: 22px;
 }
 
 .fa-icon-right {
   position: absolute;
-  right: 16px;
-  top: 50%;
+  right: -3px;
+  top: 60%;
   transform: translateY(-50%);
   color: #88A28A;
-  font-size: 18px;
+  font-size: 20px;
   cursor: pointer;
 }
 

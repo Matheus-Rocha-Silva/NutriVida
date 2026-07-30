@@ -6,6 +6,7 @@
   <title>Nutri Saúde - Entrar</title>
   <link rel="stylesheet" href="css/login.css">
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://ka-f.webawesome.com/webawesome@3.10.0/styles/webawesome.css" />
 </head>
 <body>
 
@@ -22,21 +23,21 @@
         
         <div class="feature-list">
           <div class="feature-item">
-            <div class="feature-icon"></div>
+            <div class="feature-icon-box"><wa-icon name="bookmark" variant="regular"></wa-icon></div>
             <div class="feature-text">
               <p>Salve suas receitas favoritas</p>
               <span>para acessar quando quiser</span>
             </div>
           </div>
           <div class="feature-item">
-            <div class="feature-icon"></div>
-            <div class="feature-text">
+            <div class="feature-icon-box"><wa-icon name="lightbulb" variant="regular"></wa-icon></div> <!-- Não encontrei um icone decente para este item, então decidi pela lampada-->
+            <div class="feature-text"> <!-- Se encontrar uma igual ao do prototipo. Avise-me por favor!  -->
               <p>Receba recomendações</p>
               <span>com base nas suas preferências alimentares.</span>
             </div>
           </div>
           <div class="feature-item">
-            <div class="feature-icon"></div>
+            <div class="feature-icon-box"><wa-icon name="heart" variant="regular"></wa-icon></div>
             <div class="feature-text">
               <p>Salve suas receitas favoritas</p>
               <span>para acessar quando quiser</span>
@@ -55,16 +56,16 @@
         <p>Acesse sua conta</p>
       </div>
 
-      <form action="feed.html">
+      <form class="form-wrapper" action="Local para logica Servlet">
         <div class="input-group">
-          <span class="input-icon"></span>
+          <span class="fa-icon-left"><wa-icon name="envelope" variant="regular"></wa-icon></span>
           <input type="email" name="campoEmail" class="input-field" placeholder="Adicione seu E-mail" required>
         </div>
 
         <div class="input-group">
-          <span class="input-icon"></span>
-          <input type="password" name="cmapoSenha" class="input-field" placeholder="Adicione sua senha" required>
-          <span style="position: absolute; right: 14px; top: 35%; cursor: pointer; color: #777;"></span>
+          <span class="fa-icon-left"><wa-icon name="lock"></wa-icon></span>
+          <input type="password" name="campoSenha" class="input-field" placeholder="Adicione sua senha" required>
+          <span style="position: absolute; right: 14px; top: 35%; cursor: pointer; color: #777;"><wa-icon class="fa-icon-right" name="eye-slash" variant="regular"></wa-icon></span>
         </div>
 
         <div style="text-align: center; margin: 12px 0 20px;">
@@ -82,6 +83,6 @@
       </form>
     </div>
   </div>
-
+<script type="module" src="https://ka-f.webawesome.com/webawesome@3.10.0/webawesome.loader.js"></script>
 </body>
 </html>
