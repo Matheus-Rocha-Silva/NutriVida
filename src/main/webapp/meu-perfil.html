@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Perfil - Nutri Saúde</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/meu_perfil.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <div class="app-layout">
+        
+        <aside class="sidebar">
+            <div class="sidebar-logo">
+                <i class="fa-solid fa-leaf"></i> Nutri Saúde
+            </div>
+            
+            <nav class="sidebar-nav">
+                <a href="feed.html"><i class="fa-solid fa-house"></i> Início</a>
+                <a href="#"><i class="fa-solid fa-utensils"></i> Receitas</a>
+                <a href="favoritos.html"><i class="fa-regular fa-star"></i> Favoritos</a>
+                <a href="#"><i class="fa-regular fa-lightbulb"></i> Dicas</a>
+                <a href="meu-perfil.html" class="active"><i class="fa-regular fa-user"></i> Perfil</a>
+                <a href="#"><i class="fa-solid fa-gear"></i> Configurações</a>
+            </nav>
+
+            <div class="sidebar-footer">
+                <button class="btn-logout" onclick="openLogoutModal()">
+                    <i class="fa-solid fa-arrow-right-from-bracket"></i> Sair da Conta
+                </button>
+                <div class="mascot-illustration">
+                    <img src="img/hortelinho.png" alt="Mascote Nutri Saúde" style="max-width: 100%; height: auto;">
+                </div>
+            </div>
+        </aside>
+
+        <main class="profile-main">
+            
+            <header class="profile-header">
+                <h1><a href="#" class="back-btn"><i class="fa-solid fa-chevron-left"></i></a> Meu perfil <i class="fa-solid fa-leaf" style="color: var(--primary);"></i></h1>
+                <p class="subtitle">Aqui você pode ver e gerenciar informações do seu perfil</p>
+            </header>
+
+            <div class="profile-top-cards">
+                <div class="card user-info-card">
+                    <div class="user-avatar">
+                        <i class="fa-solid fa-circle-user"></i>
+                    </div>
+                    <div class="user-details">
+                        <h2>Luiz Inácio</h2>
+                        <p class="user-bio">Aqui também talvez precise de um atributo</p>
+                        <div class="user-meta">
+                            <span><i class="fa-regular fa-envelope"></i> LuizInacio@gmail.com</span>
+                            <span><i class="fa-regular fa-calendar"></i> Desde março de 2026</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card about-card">
+                    <h3>Sobre mim <i class="fa-solid fa-leaf" style="color: var(--primary);"></i></h3>
+                    <p>Seção que será usada para atualizar os dados atraves de JSP, talvez precise de funcionalidade para alterar essas infos.</p>
+                </div>
+            </div>
+
+            <!-- Seção de Estatísticas -->
+            <section class="stats-section">
+                <h3 class="section-title">Estatísticas</h3>
+                <div class="stats-grid">
+                    
+                    <div class="stat-card">
+                        <span class="stat-number">12</span>
+                        <span class="stat-label">Receitas<br>Salvas</span>
+                        <div class="stat-icon"><i class="fa-regular fa-bookmark"></i></div>
+                    </div>
+
+                    <div class="stat-card">
+                        <span class="stat-number">5</span>
+                        <span class="stat-label">Receitas<br>Favoritas</span>
+                        <div class="stat-icon"><i class="fa-regular fa-star"></i></div>
+                    </div>
+
+                    <div class="stat-card">
+                        <span class="stat-number">8</span>
+                        <span class="stat-label">Dicas<br>lidas</span>
+                        <div class="stat-icon"><i class="fa-regular fa-lightbulb"></i></div>
+                    </div>
+
+                    <div class="stat-card">
+                        <span class="stat-number">3</span>
+                        <span class="stat-label">Comentários<br>feitos</span>
+                        <div class="stat-icon"><i class="fa-regular fa-comment-dots"></i></div>
+                    </div>
+
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <!-- ================= MODAL DE LOGOUT ================= -->
+    <div class="modal-overlay" id="logoutModal">
+        <div class="modal-content">
+            <h3>Deseja sair da conta?</h3>
+            <p>Você precisará fazer login novamente para acessar seus dados.</p>
+            <div class="modal-actions">
+                <button class="btn btn-outline" onclick="closeLogoutModal()">Cancelar</button>
+                <form action="/seu-endpoint-de-logout-jsp" method="POST" style="display:inline;">
+                    <button type="submit" class="btn btn-danger">Sair</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Script simples para o Modal -->
+    <script>
+        function openLogoutModal() {
+            document.getElementById('logoutModal').classList.add('active');
+        }
+        function closeLogoutModal() {
+            document.getElementById('logoutModal').classList.remove('active');
+        }
+    </script>
+</body>
+</html>
