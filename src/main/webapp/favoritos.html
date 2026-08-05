@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meus Favoritos - Nutri Saúde</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/favoritos.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <div class="app-layout">
+        
+        <aside class="sidebar">
+            <div class="sidebar-logo">
+                <i class="fa-solid fa-leaf"></i> Nutri Saúde
+            </div>
+            
+            <nav class="sidebar-nav">
+                <a href="feed.html"><i class="fa-solid fa-house"></i> Início</a>
+                <a href="#"><i class="fa-solid fa-utensils"></i> Receitas</a>
+                <a href="favoritos.html" class="active"><i class="fa-regular fa-star"></i> Favoritos</a>
+                <a href="#"><i class="fa-regular fa-lightbulb"></i> Dicas</a>
+                <a href="meu-perfil.html"><i class="fa-regular fa-user"></i> Perfil</a>
+                <a href="#"><i class="fa-solid fa-gear"></i> Configurações</a>
+            </nav>
+
+            <div class="sidebar-footer">
+                <button class="btn-logout" onclick="openLogoutModal()">
+                    <i class="fa-solid fa-arrow-right-from-bracket"></i> Sair da Conta
+                </button>
+                <div class="mascot-illustration">
+                    <img src="img/hortelinho.png" alt="Mascote Nutri Saúde" style="max-width: 100%; height: auto;">
+                </div>
+            </div>
+        </aside>
+
+        <main class="favorites-main">
+            
+            <header class="favorites-header">
+                <h1><i class="fa-regular fa-star"></i> Meus favoritos</h1>
+                <p class="subtitle">Receitas que você salvou para fazer depois</p>
+            </header>
+
+            <!-- Controles de Busca e Filtro -->
+            <div class="controls-section">
+                <div class="search-wrapper">
+                    <input type="text" class="search-input" placeholder="Pesquisar receita">
+                </div>
+                <!-- O print mostra uma caixa vazia ao lado, inferi que seja um select de filtro/ordenação -->
+                <div class="filter-wrapper">
+                    <select class="filter-select">
+                        <option value="">Filtrar/Ordenar</option>
+                        <option value="recentes">Mais recentes</option>
+                        <option value="antigas">Mais antigas</option>
+                    </select>
+                </div>
+            </div>
+
+            <section class="favorites-list">
+                
+                <!-- LÓGICA DO JSP (ex: <c:forEach var="receita" items="${receitasSalvas}">) -->
+                
+                <article class="favorite-card-placeholder">
+                     
+                </article>
+
+                <article class="favorite-card-placeholder">
+                    
+                </article>
+                
+
+            </section>
+
+        </main>
+    </div>
+
+    <div class="modal-overlay" id="logoutModal">
+        <div class="modal-content">
+            <h3>Deseja sair da conta?</h3>
+            <p>Você precisará fazer login novamente para acessar seus dados.</p>
+            <div class="modal-actions">
+                <button class="btn btn-outline" onclick="closeLogoutModal()">Cancelar</button>
+                <form action="/seu-endpoint-de-logout-jsp" method="POST" style="display:inline;">
+                    <button type="submit" class="btn btn-danger">Sair</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function openLogoutModal() {
+            document.getElementById('logoutModal').classList.add('active');
+        }
+        function closeLogoutModal() {
+            document.getElementById('logoutModal').classList.remove('active');
+        }
+    </script>
+</body>
+</html>

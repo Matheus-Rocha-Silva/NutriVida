@@ -1,0 +1,194 @@
+@charset "UTF-8";
+
+@charset "UTF-8";
+
+/* =========================================
+   Reaproveitamento (Sidebar e Layout)
+   * Nota: Se estas classes já estiverem no 
+   seu style.css global, você pode ignorá-las aqui.
+   ========================================= */
+.app-layout {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: #FFFFFF;
+}
+
+.sidebar {
+    background-color: var(--bg-sidebar);
+    padding: 1.5rem;
+    border-bottom: 1px solid var(--border-color);
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.sidebar-logo {
+    font-size: 1.5rem;
+    color: var(--primary);
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.sidebar-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.sidebar-nav a {
+    text-decoration: none;
+    color: var(--text-dark);
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px;
+    border-radius: 8px;
+    transition: background 0.2s, color 0.2s;
+}
+
+.sidebar-nav a.active, .sidebar-nav a:hover {
+    color: var(--primary);
+}
+
+.sidebar-footer {
+    margin-top: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+}
+
+.btn-logout {
+    background-color: #FDECEA;
+    color: #D32F2F;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    width: 100%;
+    justify-content: center;
+    transition: opacity 0.2s;
+}
+
+.btn-logout:hover {
+    opacity: 0.8;
+}
+
+.mascot-illustration {
+    text-align: center;
+    padding: 10px;
+}
+
+/* ... (Mantenha o restante das regras da sidebar idênticas ao arquivo perfil.css) ... */
+
+/* =========================================
+   Página de Favoritos Específica
+   ========================================= */
+.favorites-main {
+    padding: 2rem 1.5rem;
+    flex: 1;
+    max-width: 1000px; /* Limita a largura para os cards não ficarem gigantes em telas ultrawide */
+    width: 100%;
+    margin: 0 auto;
+}
+
+.favorites-header {
+    margin-bottom: 2rem;
+}
+
+.favorites-header h1 {
+    font-size: 2.2rem;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: #2E7D32; /* var(--primary) */
+    margin-bottom: 0.5rem;
+}
+
+.favorites-header .subtitle {
+    color: #666666; /* var(--text-muted) */
+    font-size: 1.1rem;
+}
+
+/* =========================================
+   Barra de Pesquisa e Filtros
+   ========================================= */
+.controls-section {
+    display: flex;
+    flex-direction: column; /* Empilhado no mobile */
+    gap: 1rem;
+    margin-bottom: 2.5rem;
+}
+
+.search-input, .filter-select {
+    width: 100%;
+    padding: 12px 16px;
+    border: 1px solid #DDDDDD;
+    border-radius: 8px;
+    background-color: #FAFAFA; /* Levemente cinza como no print */
+    font-size: 1rem;
+    color: #333333;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.search-input:focus, .filter-select:focus {
+    border-color: #2E7D32; /* var(--primary) */
+}
+
+/* =========================================
+   Área das Receitas (Cards)
+   ========================================= */
+.favorites-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem; /* Espaço entre os cards */
+}
+
+.favorite-card-placeholder {
+    width: 100%;
+    min-height: 180px; /* Altura generosa conforme o print */
+    background-color: #FFFFFF;
+    border: 1px solid #DDDDDD;
+    border-radius: 12px;
+    /* Adiciona uma sombra bem sutil para dar o aspecto de "card" em relevo */
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+
+/* =========================================
+   Media Queries (Desktop)
+   ========================================= */
+@media (min-width: 900px) {
+    .app-layout {
+        flex-direction: row;
+    }
+
+    .sidebar {
+        width: 280px;
+        min-height: 100vh;
+        border-right: 1px solid #DDDDDD;
+        border-bottom: none;
+        position: sticky;
+        top: 0;
+    }
+    
+    .controls-section {
+        flex-direction: row; /* Coloca pesquisa e filtro lado a lado no desktop */
+    }
+    
+    .search-wrapper {
+        flex: 2; /* A pesquisa ocupa mais espaço */
+    }
+    
+    .filter-wrapper {
+        flex: 1; /* O filtro ocupa menos espaço */
+    }
+}}
