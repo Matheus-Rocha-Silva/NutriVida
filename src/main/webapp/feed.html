@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feed - Nutri Saúde</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/feed.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="logo">
+            <i class="fa-solid fa-leaf"></i> Nutri Saúde
+        </div>
+        
+        <nav class="main-nav">
+            <a href="#" class="active"><i class="fa-solid fa-house"></i> Início</a>
+            <a href="#"><i class="fa-solid fa-utensils"></i> Receitas</a>
+            <a href="favoritos.html"><i class="fa-solid fa-star"></i> Favoritos</a>
+            <a href="#"><i class="fa-solid fa-circle-info"></i> Sobre</a>
+        </nav>
+
+        <div class="user-actions">
+            <div class="search-bar">
+                <input type="text" placeholder="Buscar receitas...">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </div>
+            
+            <!-- Componente de Notificações -->
+            <div class="notification-menu-container">
+                <button class="icon-btn" id="notificationToggle" aria-label="Notificações">
+                    <i class="fa-regular fa-bell"></i>
+                    <span class="notification-badge">!</span>
+                </button>
+                <div class="dropdown-menu notification-dropdown" id="notificationDropdown">
+                    <div class="dropdown-header">
+                        <h4>Notificações</h4>
+                    </div>
+                    <div class="notification-list">
+						
+                    </div>
+                    <div class="dropdown-footer">
+                        <a href="#">Ver todas as notificações</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="profile-menu-container">
+                <button class="profile-btn" id="profileToggle">
+                    <i class="fa-solid fa-circle-user"></i> Lulatron <i class="fa-solid fa-chevron-down"></i>
+                </button>
+                <div class="dropdown-menu profile-dropdown-menu" id="profileDropdown">
+                    
+                    <div class="profile-summary-menu">
+                        <span class="badge"><i class="fa-solid fa-leaf"></i> Seu perfil</span>
+                        <div class="summary-info-menu">
+                            <i class="fa-solid fa-circle-user fa-3x"></i>
+                            <div class="summary-text">
+                                <h4>Lulatron</h4>
+                                <p>Gosto de receitas saudáveis</p>
+                            </div>
+                        </div>
+                        <a href="meu-perfil.html" class="btn btn-outline full-width">Ver perfil</a>
+                    </div>
+
+                    <div class="menu-links">
+                        <a href="selecionar-conta.html">Trocar de conta <i class="fa-solid fa-angle-right"></i></a>
+                        <a href="#">Suporte <i class="fa-solid fa-angle-right"></i></a>
+                        <a href="#">Configurações <i class="fa-solid fa-angle-right"></i></a>
+                        <button id="logoutBtn" class="logout-link">Sair <i class="fa-solid fa-angle-right"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="modal-overlay" id="logoutModal">
+        <div class="modal-content">
+            <h3>Deseja realmente sair?</h3>
+            <p>Você precisará fazer login novamente para acessar sua conta.</p>
+            <div class="modal-actions">
+                <button class="btn btn-outline" id="cancelLogout">Cancelar</button>
+                <form action="/logout-endpoint" method="POST" style="display:inline;">
+                    <button type="submit" class="btn btn-warning">Confirmar Saída</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <main class="feed-container">
+        <section class="feed-main">
+            <div class="community-posts widget">
+                <h3 class="section-title"><i class="fa-solid fa-leaf"></i> Publicações da comunidade</h3>
+                
+                <div class="empty-state">
+                    <p>Sem postagens no momento</p>
+                </div>
+            </div>
+        </section>
+
+        <aside class="feed-sidebar">
+            <div class="widget most-liked">
+                <h3 class="section-title"><i class="fa-solid fa-heart"></i> Mais curtidos</h3>
+                <div class="empty-state">
+                    <p></p>
+                </div>
+            </div>
+        </aside>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-left">
+            <p>&copy; 2026 Nutri Saúde. Todos os direitos reservados.</p>
+        </div>
+        <div class="footer-right">
+            <a href="#"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#"><i class="fa-brands fa-facebook"></i></a>
+            <a href="#"><i class="fa-brands fa-twitter"></i></a>
+        </div>
+    </footer>
+
+    <script src="js/feed.js"></script>
+</body>
+</html>

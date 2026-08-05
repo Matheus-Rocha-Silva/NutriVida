@@ -1,0 +1,549 @@
+@charset "UTF-8";
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+:root {
+    --primary: #2E7D32;
+    --secondary: #81C784;
+    --bg-soft: #E8F5E9;
+    --bg-neutral: #F5F1E6;
+    --cta: #FF9800;
+    --text-dark: #333333;
+    --white: #FFFFFF;
+}
+
+body {
+    background-color: var(--white);
+    color: var(--text-dark);
+    font-family: Arial, sans-serif;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.main-header {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    border-bottom: 1px solid #ddd;
+    gap: 1rem;
+}
+
+.main-nav {
+    display: flex;
+    gap: 1rem;
+    overflow-x: auto;
+}
+
+.main-nav a {
+    color: var(--text-dark);
+    text-decoration: none;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.main-nav a.active {
+    color: var(--primary);
+    border-bottom: 2px solid var(--primary);
+}
+
+.feed-container {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 350px; 
+    gap: 2rem;
+    max-width: 1100px;
+    width: 100%;
+    margin: 2rem auto;
+    flex: 1;
+    align-items: start;
+    padding: 0 1rem;
+}
+
+.feed-main {
+    background: var(--white);
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    min-height: 80vh; 
+    
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.community-posts {
+    padding: 1.5rem;
+    flex: 1; 
+    display: flex;
+    flex-direction: column;
+}
+
+/* Título da seção principal */
+.community-posts .section-title {
+    margin-top: 0;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #eee;
+    color: var(--text-dark);
+}
+
+.community-posts .empty-state {
+    flex: 1; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--bg-neutral);
+    border-radius: 8px;
+    margin-top: 1rem;
+    color: #666;
+    font-size: 1.1rem;
+}
+
+.feed-sidebar {
+    position: sticky;
+    top: 20px; 
+}
+
+.widget.most-liked {
+    background: var(--white);
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    padding: 1.5rem;
+    min-height: 400px;
+    display: flex;
+    flex-direction: column;
+}
+
+.widget.most-liked .section-title {
+    margin-top: 0;
+    color: var(--text-dark);
+}
+
+.widget.most-liked .empty-state {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--bg-neutral);
+    border-radius: 8px;
+    margin-top: 1rem;
+    color: #666;
+}
+
+.profile-menu-container {
+    position: relative;
+}
+
+.profile-btn {
+    background: transparent;  
+    border: none;
+    font-size: 1rem;
+    color: var(--text-dark);
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 0.5rem 0.8rem;
+    border-radius: 8px;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.profile-btn:hover {
+    background-color: var(--bg-soft);
+    color: var(--primary);
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 100%;
+    background: var(--white);
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    width: 280px;
+    z-index: 100;
+}
+
+.dropdown-menu.active {
+    display: flex;
+    flex-direction: column;
+}
+
+.dropdown-menu a, .dropdown-menu button.logout-link {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
+    color: var(--text-dark);
+    text-decoration: none;
+    background: none;
+    border: none;
+    text-align: left;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.dropdown-menu a:hover, .dropdown-menu button.logout-link:hover {
+    background-color: var(--bg-soft);
+    color: var(--primary);
+}
+
+.logout-link {
+    color: var(--primary) !important;
+    font-weight: bold;
+}
+
+/* Estilo geral para blocos brancos (Widgets) */
+.widget {
+    background: var(--white);
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    min-height: 350px;
+    display: flex;
+    flex-direction: column;
+}
+
+.create-post-header, .create-post-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.create-post-actions {
+    margin-top: 15px;
+}
+
+.create-post-actions button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    color: var(--text-dark);
+}
+
+.modal-overlay {
+    display: none;
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0,0,0,0.5);
+    align-items: center;
+    justify-content: center;
+    z-index: 200;
+}
+
+.modal-overlay.active {
+    display: flex;
+}
+
+.modal-content {
+    background: var(--white);
+    padding: 2rem;
+    border-radius: 8px;
+    text-align: center;
+    max-width: 400px;
+    width: 90%;
+}
+
+.btn {
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    border: none;
+    text-decoration: none;
+}
+
+.btn-primary { background: var(--primary); color: var(--white); }
+.btn-outline { background: transparent; border: 1px solid var(--primary); color: var(--primary); }
+.btn-warning { background: var(--cta); color: var(--white); }
+
+.empty-state {
+	flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: var(--bg-neutral);
+    border-radius: 8px;
+    color: var(--text-dark);
+    margin-top: 15px;
+    padding: 2rem;
+	
+	
+    /*padding: 3rem;
+    text-align: center;
+    background: var(--bg-neutral);
+    border-radius: 8px;
+    color: var(--text-dark);
+    margin-top: 15px;*/
+}
+
+/* Rodapé */
+.site-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 2rem;
+    background-color: var(--bg-soft);
+    border-top: 1px solid #ddd;
+    width: 100%;
+}
+
+.footer-left p {
+    margin: 0;
+    color: var(--text-dark);
+}
+
+.footer-right {
+    display: flex;
+    gap: 1rem;
+}
+
+.footer-right a {
+    color: var(--primary);
+    font-size: 1.2rem;
+    transition: color 0.3s;
+}
+
+.footer-right a:hover {
+    color: var(--secondary);
+}
+
+.user-actions {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.icon-btn {
+    background: transparent;
+    border: none;
+    font-size: 1.3rem;
+    color: var(--text-dark);
+    cursor: pointer;
+    position: relative;
+    padding: 0.5rem;
+    transition: color 0.3s;
+}
+
+.icon-btn:hover {
+    color: var(--primary);
+}
+
+.notification-badge {
+    position: absolute;
+    top: -2px;
+    right: -2px;
+    background-color: var(--cta);
+    color: var(--white);
+    font-size: 0.7rem;
+    font-weight: bold;
+    border-radius: 50%;
+    width: 18px;
+    height: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.notification-menu-container, .profile-menu-container {
+    position: relative;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 120%;
+    background: var(--white);
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+    z-index: 100;
+    overflow: hidden;
+}
+
+.dropdown-menu.active {
+    display: flex;
+    flex-direction: column;
+}
+
+.notification-dropdown {
+    width: 340px;
+    right: -60px;
+}
+
+.dropdown-header {
+    padding: 1.2rem 1rem;
+    background-color: var(--bg-soft);
+    border-bottom: 1px solid #ddd;
+}
+
+.dropdown-header h4 {
+    margin: 0;
+    color: var(--primary);
+    font-size: 1.1rem;
+}
+
+.notification-list {
+    max-height: 320px;
+    overflow-y: auto;
+}
+
+.notification-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1rem;
+    border-bottom: 1px solid #f0f0f0;
+    text-decoration: none;
+    color: var(--text-dark);
+    transition: background 0.2s;
+}
+
+.notification-item:hover {
+    background-color: #fafafa;
+}
+
+.notification-item.unread {
+    background-color: #f4faeb; 
+}
+
+.notification-item i {
+    color: var(--primary);
+    margin-top: 4px;
+    font-size: 1.2rem;
+}
+
+.notification-content p {
+    margin: 0;
+    font-size: 0.9rem;
+    line-height: 1.4;
+}
+
+.notification-content span {
+    font-size: 0.75rem;
+    color: #888;
+    margin-top: 5px;
+    display: block;
+}
+
+.dropdown-footer {
+    padding: 1rem;
+    text-align: center;
+    background-color: var(--white);
+}
+
+.dropdown-footer a {
+    color: var(--primary);
+    font-weight: bold;
+    text-decoration: none;
+    font-size: 0.9rem;
+}
+
+.dropdown-footer a:hover {
+    text-decoration: underline;
+}
+
+.profile-dropdown-menu {
+    width: 280px;
+}
+
+.profile-summary-menu {
+    padding: 1.5rem;
+    background-color: var(--bg-soft);
+    border-bottom: 1px solid #ddd;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.summary-info-menu {
+    margin: 1rem 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.summary-info-menu i {
+    color: var(--primary);
+}
+
+.summary-text h4 {
+    margin: 0;
+    font-size: 1.1rem;
+    color: var(--text-dark);
+}
+
+.summary-text p {
+    margin: 0;
+    font-size: 0.85rem;
+    color: #666;
+}
+
+.full-width {
+    width: 100%;
+    display: block;
+    text-align: center;
+}
+
+.menu-links {
+    padding: 0.5rem 0;
+}
+
+.menu-links a, .menu-links button {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem 1.5rem;
+    color: var(--text-dark);
+    text-decoration: none;
+    background: none;
+    border: none;
+    text-align: left;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+}
+
+.menu-links a:hover, .menu-links button:hover {
+    background-color: #fafafa;
+    color: var(--primary);
+}
+
+/* Desktop */
+@media (min-width: 768px) {
+    .main-header {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    .feed-container {
+        flex-direction: row;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+    
+    .feed-main { flex: 2; }
+    .feed-sidebar { flex: 1; }
+}
+
+/* Mobile */
+@media (max-width: 850px) {
+    .feed-container {
+        grid-template-columns: 1fr; 
+    }
+    
+    .feed-sidebar {
+        position: static;
+    }
+}
